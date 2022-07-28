@@ -40,7 +40,7 @@ const Sidebar = () => {
                     {!userProfile && (
                         <div className="px-2 py-4 hidden xl:block">
                             <p className="text-gray-400">Log in to follow creators, like videos, and view comments.</p>
-                            <div className="pr-4">
+                            {/* <div className="pr-4">
                                 <GoogleLogin
                                     clientId=""
                                     render={(renderProps) => (
@@ -56,7 +56,7 @@ const Sidebar = () => {
                                     onFailure={() => {}}
                                     cookiePolicy="single_host_origin"
                                 />
-                            </div>
+                            </div> */}
                         </div>
                     )}
 

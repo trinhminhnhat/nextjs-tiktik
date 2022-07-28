@@ -7,7 +7,6 @@ import { GoVerified } from 'react-icons/go';
 import { HiVolumeOff, HiVolumeUp } from 'react-icons/hi';
 
 import { Video } from './../types';
-import { urlFor } from '../utils/client';
 
 interface IProps {
     post: Video;
@@ -40,7 +39,11 @@ const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, li
         return (
             <div>
                 <Link href={`/detail/${_id}`}>
-                    <video loop src={video?.asset?.url} className="w-[250px] md:w-full rounded-xl cursor-pointer"></video>
+                    <video
+                        loop
+                        src={video?.asset?.url}
+                        className="w-[250px] md:w-full rounded-xl cursor-pointer"
+                    ></video>
                 </Link>
                 <div className="flex gap-2 -mt-8 items-center ml-4">
                     <p className="text-white text-lg font-medium flex gap-1 items-center">
@@ -66,7 +69,7 @@ const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, li
                                     width={62}
                                     height={62}
                                     className="rounded-full"
-                                    src={urlFor(postedBy.image).url()}
+                                    src={postedBy?.image}
                                     alt="user-profile"
                                     layout="responsive"
                                 />
@@ -79,9 +82,7 @@ const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, li
                                 <p className="flex gap-2 items-center md:text-md font-bold text-primary">
                                     {postedBy.userName} <GoVerified className="text-blue-400 text-md" />
                                 </p>
-                                <p className="font-medium text-xs text-gray-500 hidden md:block">
-                                    {postedBy.fullName}
-                                </p>
+                                <p className="font-medium text-xs text-gray-500 hidden md:block">{postedBy.fullName}</p>
                             </div>
                         </Link>
                         <Link href={`/detail/${_id}`}>

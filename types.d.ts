@@ -34,5 +34,6 @@ export interface IUser {
     _id: string;
     _type: string;
     userName: string;
+    fullName: string;
     image: string;
 }
