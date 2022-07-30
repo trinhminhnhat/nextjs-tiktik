@@ -65,13 +65,15 @@ const Navbar: NextPage = () => {
                         </Link>
                         {user.image && (
                             <Link href={`/profile/${user._id}`}>
-                                <Image
-                                    className="rounded-full cursor-pointer"
-                                    src={user.image}
-                                    alt="user"
-                                    width={40}
-                                    height={40}
-                                />
+                                <>
+                                    <Image
+                                        className="rounded-full cursor-pointer"
+                                        src={user.image}
+                                        alt="user"
+                                        width={40}
+                                        height={40}
+                                    />
+                                </>
                             </Link>
                         )}
                         <button
