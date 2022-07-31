@@ -25,7 +25,7 @@ export const createOrGetUser = async (response: any, addUser: any) => {
     const user = {
         _id: sub,
         _type: 'user',
-        userName: name,
+        userName: name.replace(/\s+/g, '').toLowerCase(),
         fullName: name,
         image: picture,
     };

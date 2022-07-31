@@ -1,16 +1,19 @@
+import { NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiFillHome, AiOutlineMenu } from 'react-icons/ai';
 import { ImCancelCircle } from 'react-icons/im';
 
+import useAuthStore from '../store/authStore';
 import Discover from './Discover';
 import Footer from './Footer';
 import SuggestedAccounts from './SuggestedAccounts';
 
-const Sidebar = () => {
+const Sidebar: NextPage = () => {
     const { pathname } = useRouter();
     const [showSidebar, setShowSidebar] = useState<Boolean>(true);
+    const { fetchAllUsers, allUsers }: any = useAuthStore();
 
     const activeLink =
         'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded';
@@ -35,7 +38,7 @@ const Sidebar = () => {
                         </Link>
                     </div>
                     <Discover />
-                    <SuggestedAccounts />
+                    <SuggestedAccounts fetchAllUsers={fetchAllUsers} allUsers={allUsers} />
                     <Footer />
                 </div>
             )}

@@ -1,5 +1,6 @@
 import { SanityAssetDocument } from '@sanity/client';
 import axios from 'axios';
+import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
@@ -10,7 +11,7 @@ import { BASE_URL } from '../utils';
 import { client } from '../utils/client';
 import { topics } from '../utils/constants';
 
-const Upload = () => {
+const Upload: NextPage = () => {
     const [caption, setCaption] = useState('');
     const [topic, setTopic] = useState<String>(topics[0].name);
     const [loading, setLoading] = useState<Boolean>(false);
