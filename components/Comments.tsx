@@ -30,12 +30,12 @@ const Comments: NextPage<IProps> = ({ comment, setComment, addComment, comments,
         <div className="border-t-2 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]">
             <div className="overflow-scroll lg:h-[457px]">
                 {comments?.length > 0 ? (
-                    comments?.map((item: IComment, index: number) => (
-                        <Fragment key={index}>
+                    comments?.map((item: IComment) => (
+                        <Fragment key={item._key}>
                             {allUsers?.map(
                                 (user: IUser) =>
                                     user._id === (item.postedBy._ref || item.postedBy._id) && (
-                                        <div className=" p-2 items-center">
+                                        <div className=" p-2 items-center" key={user._id}>
                                             <Link href={`/profile/${user._id}`}>
                                                 <div className="flex items-start gap-3">
                                                     <div className="w-12 h-12">
